@@ -11,3 +11,6 @@ console.log(path.basename(__filename));
 let frutas = ["fresa", "mango", "kiwi", "naranja", "cereza"];
 
 console.log(path.join(...frutas));
+
+let v8 = require("v8");
+console.log(v8.getHeapStatistics());
