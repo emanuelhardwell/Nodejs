@@ -1,0 +1,12 @@
+
+=== Debes instalar este paquete como ROOT ... si lo haces como usuario normal no te deja ===
+
+npm -g install httpster
+
+=== Debes iniciar estos valores en tu terminal dentro de tu directorio de tu proyecto ===
+
+httpster -p 8080 -d /public
+
+
+=== link del modulo ===
+https://www.npmjs.com/package/httpster
