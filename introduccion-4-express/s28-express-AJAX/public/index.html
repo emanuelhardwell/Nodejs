@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Peliculas</title>
+  </head>
+  <body>
+    <div id="contenedor" class="contenedor">
+      <h3 class="titulo">Listado de peliculas</h3>
+      <form action="/new" method="post">
+        <label class="label" for="pelicula">Pelicula: </label>
+        <input
+          type="text"
+          name="pelicula"
+          id="pelicula"
+          class="pelicula"
+          autofocus
+          required="true"
+        />
+        <label class="label" for="calificacion"> Calificación: </label>
+        <input
+          type="range"
+          name="calificacion"
+          id="calificacion"
+          class="calificacion"
+          min="0"
+          max="10"
+        />
+        <input type="submit" value="Enviar" id="boton" class="boton" />
+      </form>
+    </div>
+    <!-- div 2 -->
+    <div id="contenedor-peliculas" class="contenedor-peliculas">
+      <ul id="lista" class="lista"></ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

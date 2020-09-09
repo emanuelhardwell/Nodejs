@@ -1,0 +1,25 @@
+/* 
+
+*/
+
+body {
+  background-image: radial-gradient(circle, rgb(83, 83, 83), rgb(37, 35, 35));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: #fff;
+  margin: 5px;
+}
+
+.pelicula,
+.calificacion,
+.boton,
+.label,
+.titulo {
+  display: block;
+  padding: 4px;
+}
+
+.contenedor-peliculas {
+  margin-top: 10px;
+  border: 5px solid white;
+}
