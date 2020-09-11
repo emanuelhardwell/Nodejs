@@ -1,0 +1,6 @@
+use todos
+db.createUser({
+    user: "emanuel",
+    pwd: "hardwell100",
+    roles: [{role: "readWrite", db: "todos"}]
+})
