@@ -46,7 +46,7 @@ app.post("/add", (req, res) => {
     })
     .catch((err) => {
       log("Error al insertar", err.message);
-      res.json({ response: "Failed" });
+      res.status(400).json({ response: "Failed" });
     });
 });
 
@@ -55,7 +55,7 @@ app.get("/getall", (req, res) => {
     .then((doc) => res.json({ response: "Success", data: doc }))
     .catch((err) => {
       console.log("Error en la consulta ", err.message);
-      res.json({ response: "Failed" });
+      res.status(400).json({ response: "Failed" });
     });
 });
 
@@ -71,7 +71,18 @@ app.get("/complete/:id/:status", (req, res) => {
     .then((doc) => res.json({ response: "Success" }))
     .catch((error) => {
       console.log("Error al actualizar", error.message);
-      res.json({ response: "Failed" });
+      res.status(400).json({ response: "Failed" });
+    });
+});
+
+app.get("/delete/:id", (req, res) => {
+  let id = req.params.id;
+
+  Todo.findByIdAndDelete({ _id: id })
+    .then((doc) => res.json({ response: "Success" }))
+    .catch((error) => {
+      console.log("Error al eliminar ", error.message);
+      res.status(400).json({ response: "Failed" });
     });
 });
 
