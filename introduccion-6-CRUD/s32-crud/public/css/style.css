@@ -1,0 +1,10 @@
+/* 
+
+*/
+
+body {
+  background-image: radial-gradient(circle, rgb(66, 66, 66), rgb(49, 48, 48));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: #fff;
+}
