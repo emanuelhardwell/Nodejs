@@ -44,14 +44,35 @@ app.post("/add", (req, res) => {
       console.log("Elemento insertado correctamente", doc);
       res.json({ response: "Success Correcto" });
     })
-    .catch((err) => log("Error al insertar", err.message));
+    .catch((err) => {
+      log("Error al insertar", err.message);
+      res.json({ response: "Failed" });
+    });
 });
 
 app.get("/getall", (req, res) => {
-  Todo
-    .find({}, "text completed")
+  Todo.find({}, "text completed")
     .then((doc) => res.json({ response: "Success", data: doc }))
-    .catch((err) => console.log("Error en la consulta ", err.message));
+    .catch((err) => {
+      console.log("Error en la consulta ", err.message);
+      res.json({ response: "Failed" });
+    });
+});
+
+app.get("/complete/:id/:status", (req, res) => {
+  let id = req.params.id;
+  let status = (req.params.status = "true");
+
+  Todo.findByIdAndUpdate(
+    { _id: id },
+    { $set: { completed: status } },
+    { useFindAndModify: false }
+  )
+    .then((doc) => res.json({ response: "Success" }))
+    .catch((error) => {
+      console.log("Error al actualizar", error.message);
+      res.json({ response: "Failed" });
+    });
 });
 
 app.listen(3000, () => console.log("Servidor iniciado ..."));
